@@ -1,0 +1,109 @@
+page: # e.g. blog - content/<key> - what content do you want to define listing for?
+  show: # In terms of content, pages, and files, what do you want to show/hide?
+    content: true # e.g. true, false
+    pages: false # ...
+    files: false # ...
+  pages:
+    group: # Group items
+      partial: "" # e.g. blog_group_title.html - use a custom template/partial for group titles?
+      byparam: false # e.g. false, true - do you want to group by GroupByParam rather than the default GroupBy?
+      value: "" # e.g. Dir - .Pages.GroupBy <value>- .Pages.GroupByParam <value> - By what do you want to group by?
+    list: # List items
+      partial: "" # e.g. blog_item_title.html - use a custom template/partial for page titles?
+      sort: # how do you want to sort the list?
+        param: "date" # e.g. "date" - Pages.ByParam <param> - by what param do you want to sort the list?
+        reverse: true # e.g. true, false - do you want to reverse the list?
+  files:
+    list:
+      partial: ""
+      sort:
+        param: ""
+        reverse: true
+
+blog:
+  show:
+    content: true
+    pages: true
+    files: false
+  pages:
+    group:
+      partial: ""
+      byparam: false
+      value: ""
+    list:
+      partial: ""
+      sort:
+        param: "date"
+        reverse: true
+  files:
+    list:
+      partial: ""
+      sort:
+        param: ""
+        reverse: true
+
+articles:
+  show:
+    content: false
+    pages: true
+    files: false
+  pages:
+    group:
+      partial: ""
+      byparam: false
+      value: ""
+    list:
+      partial: ""
+      sort:
+        param: "title"
+        reverse: false
+  files:
+    list:
+      partial: ""
+      sort:
+        param: ""
+        reverse: true
+
+wiki:
+  show:
+    content: false
+    pages: true
+    files: false
+  pages:
+    group:
+      partial: ""
+      byparam: false
+      value: "Dir"
+    list:
+      partial: ""
+      sort:
+        param: "title"
+        reverse: false
+  files:
+    list:
+      partial: ""
+      sort:
+        param: ""
+        reverse: true
+
+images:
+  show:
+    content: false
+    pages: false
+    files: true
+  pages:
+    group:
+      partial: ""
+      byparam: false
+      value: ""
+    list:
+      partial: ""
+      sort:
+        param: "title"
+        reverse: false
+  files:
+    list:
+      partial: ""
+      sort:
+        param: "Title"
+        reverse: true

@@ -1,0 +1,36 @@
+<!-- PAGE LIST -->
+<!-- Get list configuration for type, e.g. "page" or "blog", etc -->
+{{ $config := (index .Site.Data.struct .Type) }}
+
+<!-- If page listing is enabled -->
+{{ if (and $config.show.pages .Pages) }}
+	<!-- Group pages? -->
+	{{ if $config.pages.group.value }}
+		<ul class="pages list">
+			{{ $grouped_pages := .Pages.GroupBy $config.pages.group.value }}
+
+			<!-- Use .GroupByParam instead of .GroupBy? -->
+			{{ if $config.pages.group.byparam }}
+				{{ $grouped_pages = .Pages.GroupByParam $config.pages.group.value }}
+			{{ end }}
+
+			{{ range $grouped_pages }}
+				<li class="group group_{{ $config.pages.group.value }}">
+					<!-- GROUP TITLE -->
+					<!-- Use something other than the default partial? -->
+					{{ if $config.pages.group.partial }}
+						{{ partial $config.pages.group.partial . }}
+					{{ else }}
+						{{ partial "pages-list-title.html" . }}
+					{{ end }}
+					
+					<!-- Render pages items list within this group -->
+					{{ partial "pages-list.html" (dict "context" . "config" $config) }}
+				</li>
+			{{ end }}
+		</ul>
+	<!-- No grouping -->
+	{{ else }}
+		{{ partial "pages-list.html" (dict "context" . "config" $config) }}
+	{{ end }}
+{{ end }}

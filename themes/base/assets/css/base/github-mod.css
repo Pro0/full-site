@@ -1,0 +1,16 @@
+body, .markup-body {
+  font-size: 125%;
+  /* Adds the "symbola" font */
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol, Symbola;
+}
+
+.markup-body h1,
+.markup-body h2 {
+  border-bottom: 0;
+}
+
+
+/*.markup-body, html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Symbola;
+}*/

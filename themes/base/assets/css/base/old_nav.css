@@ -1,0 +1,89 @@
+nav#nav {
+  margin-top: 15px;
+  text-transform: uppercase;
+  margin-bottom: -5.5px;
+}
+
+/* Both */
+nav#nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: inline-block;
+  margin-right: -5px;
+}
+nav#nav ul li a {
+  background-color: #f7f7f8;
+  color: #24292e;
+  padding: 10px;
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+nav#nav ul li a:visited {
+  color: #24292e;
+}
+nav#nav ul li:hover a {
+  text-decoration: none;
+}
+
+
+/* Level 1 */
+nav#nav > ul > li {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  /*margin-bottom: -3px;*/
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: text-bottom;
+}
+/*nav#nav > ul > li:last-child {
+  margin-right: 0px;
+}*/
+nav#nav > ul > li.is > a:first-child, nav#nav > ul > li:hover > a:first-child {
+  border-bottom: 5px solid #d4d4d4;
+  padding-bottom: 5px;
+}
+
+
+/* Level 2 */
+nav#nav > ul > li > ul {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  white-space: nowrap;
+
+  background-color: #fff;
+  padding-left: 5px;
+  margin-left: -5px;
+  padding-right: 5px;
+  margin-right: -5px;
+  padding-bottom: 5px;
+  margin-bottom: -5px;
+  border-radius: 5px;
+}
+nav#nav > ul > li > ul > li {
+  margin: 0;
+  display: block;
+  padding-top: 5px;
+  overflow: auto;
+}
+nav#nav > ul > li > ul > li > a {
+  width: 100%;
+}
+nav#nav > ul > li > ul > li.is > a:first-child, nav#nav > ul > li > ul > li:hover > a:first-child {
+  border-left: 5px solid #24292e;
+  padding-left: 5px;
+}
+nav#nav > ul > li:hover > ul, nav#nav > ul > li > ul:hover, nav#nav > ul > li > ul > li:hover {
+  visibility: visible;
+  pointer-events: auto;
+}

@@ -1,0 +1,19 @@
+{{ define "main" }}
+	<!-- https://discourse.gohugo.io/t/how-to-pass-variables-to-a-partial-template/7321/11 -->
+	{{ if .Site.Data.struct }}
+		<h2>{{ .Title }}</h2>
+
+		<!-- CONTENT -->
+		{{ $config := (index .Site.Data.struct .Type) }}
+		{{ if (and $config.show.content .Content) }}
+			{{ partial "Content" . }}
+		{{ end }}
+
+		<!-- PAGE LIST -->
+		{{ partial "pages.html" . }}
+
+		<!-- FILE LIST -->
+		{{ partial "files.html" . }}
+	{{ end }}
+
+{{ end }}

@@ -1,0 +1,23 @@
+{{ $page := .page }}
+{{ $site := .site }}
+<ul class="{{ $site.Params.menu_class }}">
+	{{ range .menu }}
+		{{ $is := eq $page.Title .Name }}
+		{{ $has := $page.HasMenuCurrent "main" . }}
+	
+		{{ if .HasChildren }}
+
+	        <li class="{{ $site.Params.menu_item_class }} {{ if $is }}is{{ end }}{{ if $has }} has{{ end }}{{ if .HasChildren }} children{{ end }}">
+	          <a href="{{ .URL }}">{{ .Name }}</a>
+	          {{ partial "menu_recursive.html" (dict "menu" .Children "page" $page "site" $site) }}
+	        </li>
+
+	      {{ else }}
+
+	        <li class="{{ $site.Params.menu_item_class }} {{ if $is }}is{{ end }}{{ if $has }} has{{ end }}{{ if .HasChildren }} children{{ end }}">
+	          <a href="{{ .URL }}">{{ .Name }}</a>
+	        </li>
+
+		{{ end }}
+	{{ end }}
+</ul>

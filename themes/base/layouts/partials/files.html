@@ -1,0 +1,31 @@
+{{ $config := (index .Site.Data.struct .Type) }}
+
+<ul class="files list">
+	<!-- Sorting, by param/field -->
+	{{ $sortByField := $config.files.list.sort.param }}
+	<!-- Reverse sorting? -->
+	{{ $sortAsc := "asc"}}
+	{{ if $config.files.list.sort.reverse }}
+		{{ $sortAsc := "desc" }}
+	{{ end }}
+
+	<!-- Sort by param/field? -->
+	{{ if $sortByField }}
+		{{ range sort .Resources $sortByField $sortAsc }}
+			{{ if $config.files.list.partial }}
+				<li>{{ partial $config.files.list.partial . }}</li>
+			{{ else }}
+				<li>{{ partial "files-item.html" . }}</li>
+			{{ end }}
+		{{ end }}
+	{{ else }}
+		<!-- No way to reverse this when not using a value/param? -->
+		{{ range sort .Resources }}
+			{{ if $config.files.list.partial }}
+				<li>{{ partial $config.files.list.partial . }}</li>
+			{{ else }}
+				<li>{{ partial "files-item.html" . }}</li>
+			{{ end }}
+		{{ end }}
+	{{ end }}
+</ul>

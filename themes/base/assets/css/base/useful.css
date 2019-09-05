@@ -1,0 +1,108 @@
+.hide {
+  display: none;
+}
+.show {
+  display: inline;
+}
+.show-inherit {
+  display: inherit;
+}
+.show-initial {
+  display: initial;
+}
+.show-block {
+  display: block;
+}
+.show-inline {
+  display: inline;
+}
+.show-inline-block {
+  display: inline-block;
+}
+.show-table {
+  display: table;
+}
+
+
+.clear {
+  clear: both;
+}
+/* Background image fill/cover */
+.fill {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+}
+/* Make images in text fit in with the text (like emojis) */
+img.inline, img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+   background-color: transparent !important;
+}
+
+
+/* Makes the element completely invisible
+and un-interactable, but still takes space */
+.disable {
+  visibility: hidden;
+  opacity: 0.0;
+  z-index: -2147483647; /* https://stackoverflow.com/questions/491052/minimum-and-maximum-value-of-z-index?rq=1 */
+  pointer-events: none;
+  user-select: none;
+}
+.nospace {
+  position: absolute;
+  top: -5000;
+  left: -5000;
+}
+
+
+
+
+/* Taken from Pixel Joint */
+.pixel {
+  image-rendering:optimizeSpeed;             /* Legal fallback */
+  image-rendering:-moz-crisp-edges;          /* Firefox        */
+  image-rendering:-o-crisp-edges;            /* Opera          */
+  image-rendering:-webkit-optimize-contrast; /* Safari         */
+  image-rendering:optimize-contrast;         /* CSS3 Proposed  */
+  image-rendering:crisp-edges;               /* CSS4 Proposed  */
+  image-rendering:pixelated;                 /* CSS4 Proposed  */
+  -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+}
+/*.pixel {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}*/
+
+/*.pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, Symbola;
+}*/
+/* https://stackoverflow.com/a/219230/473368 */
+.pre {
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    white-space: pre;
+}
+
+.second {
+  opacity: 0.7;
+}

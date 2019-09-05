@@ -1,0 +1,23 @@
+<!-- .context refers to original . -->
+<!-- .config refers to the $config var -->
+
+{{ $pages := .context.Pages }}
+{{ $config := .config }}
+
+<!-- SORT PAGES -->
+{{ if $config.pages.list.sort.reverse }}
+	{{ $pages = sort (.context.Pages.ByParam $config.pages.list.sort.param).Reverse }}
+{{ else }}
+	{{ $pages = sort (.context.Pages.ByParam $config.pages.list.sort.param) }}
+{{ end }}
+
+<!-- RENDER PAGES -->
+<ul class="pages list">
+{{ range $pages }}
+	{{ if $config.pages.list.partial }}
+		<li>{{ partial $config.pages.list.partial . }}</li>
+	{{ else }}
+		<li>{{ partial "pages-item.html" . }}</li>
+	{{ end }}
+{{ end }}
+</ul>

@@ -1,0 +1,15 @@
+/* Previously: main.css, nav.css */
+/* ... */
+
+h1#title a {
+	text-decoration: none;
+}
+
+nav ul,
+nav ol {
+	list-style-type: none;
+	padding: 0px;
+}
+nav li {
+	display: inline-block;
+}

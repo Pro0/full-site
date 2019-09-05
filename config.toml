@@ -1,0 +1,53 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "💬👅 Hello World"
+pluralizelisttitles = "false"
+theme = "base"
+googleAnalytics = ""
+
+
+[params]
+description = "A Site With Some Stuff On It"
+version = "0.1"
+footer = true
+year = 2018
+markup_css = false
+#noRender = ".---" # Don't render content below this
+#split = "---." # Split the content into a seperate div where this is found
+
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "blog"
+name = "Blog"
+url = "/blog/"
+weight = 2
+
+[[menu.main]]
+identifier = "articles"
+name = "Articles"
+url = "/articles/"
+weight = 3
+
+[[menu.main]]
+identifier = "wiki"
+name = "Wiki"
+url = "/wiki/"
+weight = 4
+
+[[menu.main]]
+identifier = "images"
+name = "Images"
+url = "/images/"
+weight = 5
+
+[[menu.main]]
+identifier = "log"
+name = "Log"
+url = "/log/"
+weight = 6

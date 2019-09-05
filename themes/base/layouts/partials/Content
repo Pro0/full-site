@@ -1,0 +1,12 @@
+{{ $content := index (split .RawContent (or .Site.Params.noRender ".---")) 0 }} 
+{{ $content := split $content (or .Site.Params.split "---.") }} 
+
+<div id="content" class="content">
+{{ range $i, $e := $content }}
+
+	<div id="part{{$i}}" class="split">
+	{{ $e | markdownify }}
+	</div>
+
+{{ end }}
+</div>

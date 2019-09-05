@@ -1,0 +1,19 @@
+#container {
+  padding: 30px;
+}
+
+#header { margin-top: 0px !important; /* overwrite github css */ }
+#header #title { font-size: 2.25em; margin-top: 0px; padding-bottom: 0; }
+#header #title a { color: #24292e; }
+#header #title a:hover { text-decoration: none; }
+#header #title a>*:first-child { margin-left: 0; }
+#header #description { margin-bottom: 0; }
+
+#header h1#title {
+  margin-bottom: 15px;
+}
+
+#main {
+  margin-top: 15px; /* main-nav has 5px bottom */
+  margin-bottom: 15px;
+}

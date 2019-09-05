@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" lang="{{ .Site.LanguageCode }}">
+
+	<head>
+		<meta charset="utf-8">
+
+		{{ if not .Site.Params.Null }}
+			<title>{{ plainify .Site.Title }}{{ if .Description }} - {{ plainify .Description }}{{ else if .Site.Params.Description }} - {{ plainify .Site.Params.Description }}{{ end }}</title>
+		{{ else }}
+			<title>...</title>
+		{{ end }}
+
+		<meta name="description" content="{{ if not .Site.Params.Null }}{{ .Site.Params.Description }}{{ else }}...{{ end }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{ hugo.Generator }}
+
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="apple-touch-icon" href="/icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<link rel="stylesheet" href='{{ "/css/base.min.css" | relURL }}'>
+		<link rel="stylesheet" href='{{ "/css/style.min.css" | relURL }}'>
+		<!-- plain.css is meant to be css file that can be quickly edited to see changes (doesn't need to be parsed/built) -->
+		{{ if (fileExists "static/css/plain.css") }}<link rel="stylesheet" href='{{ "/css/plain.css" | relURL }}'>{{ end }}
+
+		{{ block "head_style" . }}{{ end }}
+
+		<meta name="theme-color" content="#fafafa">
+
+		{{ if not .Site.Params.Null }}
+			<script>
+				/* Representing the page for easy targeting through JS (there is also a CSS equivilent in body)*/
+				var page = {
+					"id": "{{ with .File }}{{ .UniqueID }}{{ end }}",
+					"type": "{{ .Type }}",
+					"kind": "{{ .Kind }}",
+					"home": {{ .IsHome }},
+					"node": {{ .IsNode }},
+					"page": {{ .IsPage }},
+					"title": "{{ .Title }}"
+				}
+			</script>
+		{{ end }}
+
+		{{ block "head_script" . }}{{ end }}
+	</head>
+
+
+	{{ if not .Site.Params.Null }}
+	<!-- Representing the page for easy targeting through CSS (there is also a JS equivilent in head) -->
+		<body id="id_{{ with .File }}{{ .UniqueID }}{{ end }}" class="{{ if .Site.Params.markup_css }}markup-body {{ end }}type_{{ .Type }} kind_{{ .Kind }} home_{{ .IsHome }} node_{{ .IsNode }} page_{{ .IsPage }}" data-title="{{ .Title }}">
+	{{ else }}
+		<body class="{{ if .Site.Params.markup_css }}markup-body{{ end }}">
+	{{ end }}
+		<!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+		<![endif]-->
+
+		<!-- Add your site or application content here -->
+		<div id="container">
+			{{ if not .Site.Params.Null }}
+				{{ block "header" . }}
+					<header id="header">
+						{{ if .Site.Params.Logo }}<img id="logo" src="{{ .Site.Params.Logo }}" alt="{{ .Site.Title }}">{{ else }}
+						<h1 id="title">
+							<a href="/">{{ .Site.Title | safeHTML }}</a>
+						</h1>{{ end }}
+						{{ if .Site.Params.Img }}<img id="img" src="{{ .Site.Params.Img }}">{{ end }}
+						{{ if .Site.Params.Description }}<div id="description">{{ .Site.Params.Description | safeHTML }}</div>{{ end }}
+					</header>
+				{{ end }}
+
+				{{ block "nav" . }}
+					{{ if .Site.Menus.main }}
+					    <nav id="nav" class="">
+					      {{ partial "menu-recursive.html" (dict "menu" .Site.Menus.main "page" . "site" .Site) }}
+					    </nav>
+					{{ end }}
+				{{ end }}
+
+				<main id="main">
+
+				{{ block "main" . }}{{ end }}
+
+				</main>
+
+				{{ if .Site.Params.Footer }} 
+				<footer id="footer">
+					<p>&copy; {{ if and (.Site.Params.Year) (not (eq .Site.Params.Year now.Year)) }}{{ .Site.Params.Year }} - {{ end }}{{ now.Year }} <a href="/">{{ .Site.Title | safeHTML }}</a></p>
+				</footer>
+				{{ end }}
+			{{ else }}
+				<h1>TITLE 👅</h1>
+				<p>Paragraph ...</p>
+			{{ end }}
+		</div>
+
+		{{ block "body_style" . }}{{ end }}
+
+		<script defer src='{{ "/js/polyfill.min.js" | relURL }}'></script>
+		<script defer src='{{ "/js/jquery-3.3.1.min.js" | relURL }}'></script>
+		<script defer src='{{ "/js/base.min.js" | relURL }}'></script>
+		<script defer src='{{ "/js/script.min.js" | relURL }}'></script>
+		{{ if (fileExists "static/js/plain.js") }}<script defer src='{{ "/js/plain.js" | relURL }}'></script>{{ end }}
+
+		{{ block "body_script" . }}{{ end }}
+
+		{{ if .Site.GoogleAnalytics }}{{ template "_internal/google_analytics.html" . }}{{ end }}
+
+	</body>
+
+</html>
