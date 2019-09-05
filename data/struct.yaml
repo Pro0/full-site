@@ -1,25 +1,25 @@
-page: # e.g. blog - content/<key> - what content do you want to define listing for?
-  show: # In terms of content, pages, and files, what do you want to show/hide?
-    content: true # e.g. true, false
-    pages: false # ...
-    files: false # ...
+---
+page:
+  show:
+    content: true
+    pages: false
+    files: false
   pages:
-    group: # Group items
-      partial: "" # e.g. blog_group_title.html - use a custom template/partial for group titles?
-      byparam: false # e.g. false, true - do you want to group by GroupByParam rather than the default GroupBy?
-      value: "" # e.g. Dir - .Pages.GroupBy <value>- .Pages.GroupByParam <value> - By what do you want to group by?
-    list: # List items
-      partial: "" # e.g. blog_item_title.html - use a custom template/partial for page titles?
-      sort: # how do you want to sort the list?
-        param: "date" # e.g. "date" - Pages.ByParam <param> - by what param do you want to sort the list?
-        reverse: true # e.g. true, false - do you want to reverse the list?
+    group:
+      partial: ''
+      byparam: false
+      value: ''
+    list:
+      partial: ''
+      sort:
+        param: date
+        reverse: true
   files:
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: ""
+        param: ''
         reverse: true
-
 blog:
   show:
     content: true
@@ -27,21 +27,20 @@ blog:
     files: false
   pages:
     group:
-      partial: ""
+      partial: ''
       byparam: false
-      value: ""
+      value: ''
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: "date"
+        param: date
         reverse: true
   files:
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: ""
+        param: ''
         reverse: true
-
 articles:
   show:
     content: false
@@ -49,21 +48,20 @@ articles:
     files: false
   pages:
     group:
-      partial: ""
+      partial: ''
       byparam: false
-      value: ""
+      value: ''
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: "title"
+        param: title
         reverse: false
   files:
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: ""
+        param: ''
         reverse: true
-
 wiki:
   show:
     content: false
@@ -71,39 +69,38 @@ wiki:
     files: false
   pages:
     group:
-      partial: ""
+      partial: ''
       byparam: false
-      value: "Dir"
+      value: Dir
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: "title"
+        param: title
         reverse: false
   files:
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: ""
+        param: ''
         reverse: true
-
 images:
   show:
-    content: false
+    content: true
     pages: false
     files: true
   pages:
     group:
-      partial: ""
+      partial: ''
       byparam: false
-      value: ""
+      value: ''
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: "title"
+        param: title
         reverse: false
   files:
     list:
-      partial: ""
+      partial: ''
       sort:
-        param: "Title"
+        param: Title
         reverse: true
