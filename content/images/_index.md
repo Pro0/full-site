@@ -11,4 +11,4 @@ resources:
   title: "img2"
 ---
 
-... (:
+... (: :) :P
