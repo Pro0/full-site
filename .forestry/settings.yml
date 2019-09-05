@@ -7,8 +7,6 @@ sections:
 - type: document
   path: data/struct.yaml
   label: Sort
-  match: "**/*"
-  read_only: false
 - type: directory
   path: content
   label: Content
