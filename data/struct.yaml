@@ -86,7 +86,7 @@ wiki:
 images:
   show:
     content: true
-    pages: false
+    pages: true
     files: true
   pages:
     group:
